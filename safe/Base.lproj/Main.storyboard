@@ -5,10 +5,27 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--地図-->
+        <!--Item-->
+        <scene sceneID="Slv-c0-mC8">
+            <objects>
+                <navigationController id="xLP-JG-88M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="xjf-15-gOB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YXP-PO-Ec9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FWm-gn-uEb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyK-Za-fRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="-1239"/>
+        </scene>
+        <!--避難所-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SFMapViewController" customModule="safe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="避難所" id="BYZ-38-t0r" customClass="SFMapViewController" customModule="safe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,12 +35,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSY-O9-fAr">
-                                <rect key="frame" x="0.0" y="159" width="375" height="459"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lG-HT-0rn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="47"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="避難所"/>
+                                <connections>
+                                    <segue destination="f0m-cw-rHu" kind="push" id="0yy-Zs-hMR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="地図" id="CKs-Ll-fht"/>
+                    <navigationItem key="navigationItem" id="5Yv-eO-Ixx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="map" destination="cSY-O9-fAr" id="3jq-EV-fDw"/>
@@ -31,7 +57,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182.5" y="-357.5"/>
+            <point key="canvasLocation" x="1326.5" y="-1239.5"/>
+        </scene>
+        <!--Select Shelter View Controller-->
+        <scene sceneID="a2Q-tP-mu4">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="f0m-cw-rHu" customClass="SelectShelterViewController" customModule="safe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BYU-Zp-Brg"/>
+                        <viewControllerLayoutGuide type="bottom" id="RkX-bZ-TNo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HLc-t9-mdl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-I8-aDI">
+                                <rect key="frame" x="0.0" y="157" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="f0m-cw-rHu" id="pHR-jz-6c6"/>
+                                    <outlet property="delegate" destination="f0m-cw-rHu" id="Gwp-eh-Ihb"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Ci-CA-Y1Z"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBc-c5-q4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927.5" y="-1239.5"/>
         </scene>
         <!--備品-->
         <scene sceneID="hBE-ts-oyU">
@@ -102,8 +157,8 @@
                     <connections>
                         <segue destination="3bb-nG-EvD" kind="relationship" relationship="viewControllers" id="ImH-WU-4Yv"/>
                         <segue destination="QQB-A2-eze" kind="relationship" relationship="viewControllers" id="em2-z2-2hZ"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xhe-Pw-8hQ"/>
                         <segue destination="HIZ-pD-wCg" kind="relationship" relationship="viewControllers" id="WHD-9t-qWX"/>
+                        <segue destination="xLP-JG-88M" kind="relationship" relationship="viewControllers" id="zfB-ho-atx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isH-Fx-Vie" userLabel="First Responder" sceneMemberID="firstResponder"/>
