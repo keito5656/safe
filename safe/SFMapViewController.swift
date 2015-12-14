@@ -69,15 +69,11 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let path : String = NSBundle.mainBundle().pathForResource("ShelterList", ofType: "json")!
         let fileHandle : NSFileHandle = NSFileHandle(forReadingAtPath: path)!
         let data : NSData = fileHandle.readDataToEndOfFile()
-        /*        var json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data,
-        options: NSJSONReadingOptions.AllowFragments,
-        error: nil) as NSDictionary*/
+
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-            print(json)
             let shelterList:NSArray = json["features"] as! NSArray
             for shelter in shelterList {
-                print(shelter)
                 let coordinates = shelter["geometry"]!!["coordinates"]
                 let long:NSNumber = (coordinates!![0] as? NSNumber)!
                 let lat:NSNumber  = (coordinates!![1] as? NSNumber)!
@@ -88,7 +84,6 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             
         } catch {
         }
-        
     }
     
     func configureLocation() {
@@ -151,6 +146,11 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        let viewController:SelectShelterViewController = segue.destinationViewController as! SelectShelterViewController
+        viewController.centerLocation = map.centerCoordinate
     }
     
 
