@@ -44,7 +44,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Va2-8s-Yfs"/>
                                 </constraints>
-                                <state key="normal" title="避難所"/>
+                                <state key="normal" title="避難所を選択してください"/>
                                 <connections>
                                     <segue destination="f0m-cw-rHu" kind="push" id="0yy-Zs-hMR"/>
                                 </connections>

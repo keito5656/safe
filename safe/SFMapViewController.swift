@@ -21,8 +21,7 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         configureLocation()
         configureMap()
         
-        let location:CLLocation = CLLocation.init(latitude: 35.447753, longitude: 139.642514)
-        addShelter("横浜市役所", subtitle:"ここだよ", location:location)
+        loadShelterList()
     }
     
     //LocationManagerDelegate
@@ -65,6 +64,32 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     // private
+    
+    func loadShelterList() {
+        let path : String = NSBundle.mainBundle().pathForResource("ShelterList", ofType: "json")!
+        let fileHandle : NSFileHandle = NSFileHandle(forReadingAtPath: path)!
+        let data : NSData = fileHandle.readDataToEndOfFile()
+        /*        var json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data,
+        options: NSJSONReadingOptions.AllowFragments,
+        error: nil) as NSDictionary*/
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+            print(json)
+            let shelterList:NSArray = json["features"] as! NSArray
+            for shelter in shelterList {
+                print(shelter)
+                let coordinates = shelter["geometry"]!!["coordinates"]
+                let long:NSNumber = (coordinates!![0] as? NSNumber)!
+                let lat:NSNumber  = (coordinates!![1] as? NSNumber)!
+                let name:String = shelter["properties"]!!["name"] as! String
+                let location:CLLocation = CLLocation.init(latitude: lat.doubleValue, longitude: long.doubleValue)
+                addShelterPin(name, subtitle: "避難所", location: location)
+            }
+            
+        } catch {
+        }
+        
+    }
     
     func configureLocation() {
         // LocationManagerの生成.
@@ -113,7 +138,7 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
     }
     
-    func addShelter(title:String, subtitle:String, location:CLLocation) {
+    func addShelterPin(title:String, subtitle:String, location:CLLocation) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         annotation.title = title

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */; };
 		F5441D0B1C1DB3630058E22B /* SelectShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */; };
-		F5441D0D1C1DB9930058E22B /* ShelterList in Resources */ = {isa = PBXBuildFile; fileRef = F5441D0C1C1DB9930058E22B /* ShelterList */; };
+		F5441D0D1C1DB9930058E22B /* ShelterList.json in Resources */ = {isa = PBXBuildFile; fileRef = F5441D0C1C1DB9930058E22B /* ShelterList.json */; };
 		F5BE83CA1C1C6AB0000C102B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE83C91C1C6AB0000C102B /* main.m */; };
 		F5BE83CD1C1C6AB0000C102B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE83CC1C1C6AB0000C102B /* AppDelegate.m */; };
 		F5BE83D01C1C6AB0000C102B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BE83CF1C1C6AB0000C102B /* ViewController.m */; };
@@ -43,7 +43,7 @@
 		B57DC9D71C1EDB8C00FBDE76 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
 		B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewController.m; sourceTree = "<group>"; };
 		F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectShelterViewController.swift; sourceTree = "<group>"; };
-		F5441D0C1C1DB9930058E22B /* ShelterList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShelterList; sourceTree = "<group>"; };
+		F5441D0C1C1DB9930058E22B /* ShelterList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShelterList.json; sourceTree = "<group>"; };
 		F5BE83C51C1C6AB0000C102B /* safe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = safe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BE83C91C1C6AB0000C102B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5BE83CB1C1C6AB0000C102B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				F5BE83FF1C1C6F87000C102B /* SFMapViewController.swift */,
 				F5BE83FE1C1C6F86000C102B /* safe-Bridging-Header.h */,
 				F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */,
-				F5441D0C1C1DB9930058E22B /* ShelterList */,
+				F5441D0C1C1DB9930058E22B /* ShelterList.json */,
 			);
 			name = map;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			files = (
 				F5BE83D81C1C6AB0000C102B /* LaunchScreen.storyboard in Resources */,
 				F5BE83D51C1C6AB0000C102B /* Assets.xcassets in Resources */,
-				F5441D0D1C1DB9930058E22B /* ShelterList in Resources */,
+				F5441D0D1C1DB9930058E22B /* ShelterList.json in Resources */,
 				F5BE83D31C1C6AB0000C102B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
