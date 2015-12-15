@@ -85,8 +85,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-I8-aDI">
-                                <rect key="frame" x="0.0" y="157" width="375" height="216"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-I8-aDI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <connections>
                                     <outlet property="dataSource" destination="f0m-cw-rHu" id="pHR-jz-6c6"/>
                                     <outlet property="delegate" destination="f0m-cw-rHu" id="Gwp-eh-Ihb"/>
@@ -94,6 +94,12 @@
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nHE-I8-aDI" secondAttribute="trailing" id="367-87-Z9A"/>
+                            <constraint firstItem="nHE-I8-aDI" firstAttribute="leading" secondItem="HLc-t9-mdl" secondAttribute="leading" id="GWR-Rv-3Qf"/>
+                            <constraint firstItem="nHE-I8-aDI" firstAttribute="top" secondItem="BYU-Zp-Brg" secondAttribute="bottom" id="Hcn-hz-07h"/>
+                            <constraint firstItem="RkX-bZ-TNo" firstAttribute="top" secondItem="nHE-I8-aDI" secondAttribute="bottom" id="RVk-FI-opb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Ci-CA-Y1Z"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
