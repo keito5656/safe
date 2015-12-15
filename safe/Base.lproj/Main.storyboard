@@ -6,11 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--地図-->
         <scene sceneID="Slv-c0-mC8">
             <objects>
                 <navigationController id="xLP-JG-88M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xjf-15-gOB"/>
+                    <tabBarItem key="tabBarItem" title="地図" id="xjf-15-gOB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YXP-PO-Ec9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -140,11 +140,11 @@
             </objects>
             <point key="canvasLocation" x="1177" y="526"/>
         </scene>
-        <!--Item-->
+        <!--Todo-->
         <scene sceneID="Edk-4o-J25">
             <objects>
                 <navigationController id="GGo-4s-Q3x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="epq-fX-dtw"/>
+                    <tabBarItem key="tabBarItem" title="Todo" id="epq-fX-dtw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AVB-T1-ycx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -243,10 +243,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QQB-A2-eze" kind="relationship" relationship="viewControllers" id="em2-z2-2hZ"/>
-                        <segue destination="HIZ-pD-wCg" kind="relationship" relationship="viewControllers" id="WHD-9t-qWX"/>
-                        <segue destination="xLP-JG-88M" kind="relationship" relationship="viewControllers" id="zfB-ho-atx"/>
                         <segue destination="GGo-4s-Q3x" kind="relationship" relationship="viewControllers" id="mkf-J5-jof"/>
+                        <segue destination="QQB-A2-eze" kind="relationship" relationship="viewControllers" id="em2-z2-2hZ"/>
+                        <segue destination="xLP-JG-88M" kind="relationship" relationship="viewControllers" id="zfB-ho-atx"/>
+                        <segue destination="HIZ-pD-wCg" kind="relationship" relationship="viewControllers" id="WHD-9t-qWX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isH-Fx-Vie" userLabel="First Responder" sceneMemberID="firstResponder"/>
