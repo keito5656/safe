@@ -111,7 +111,7 @@
         <!--備品-->
         <scene sceneID="hBE-ts-oyU">
             <objects>
-                <viewController id="QQB-A2-eze" customClass="ItemListViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QQB-A2-eze" customClass="ItemListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hxn-7S-2Ym"/>
                         <viewControllerLayoutGuide type="bottom" id="73i-ce-cCO"/>
@@ -123,6 +123,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkE-7W-4g5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7IK-Nd-ivC">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7IK-Nd-ivC" id="5O4-Q1-gUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,50 +170,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="22G-qz-CNp">
-                                <rect key="frame" x="20" y="122" width="335" height="30"/>
+                                <rect key="frame" x="20" y="101" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="品物" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwF-LD-qxv">
-                                <rect key="frame" x="20" y="93" width="42" height="21"/>
+                                <rect key="frame" x="20" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="個数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xF-ji-025">
-                                <rect key="frame" x="24" y="175" width="34" height="21"/>
+                                <rect key="frame" x="24" y="139" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm0-7q-qix">
-                                <rect key="frame" x="24" y="204" width="78" height="30"/>
+                                <rect key="frame" x="24" y="168" width="78" height="30"/>
                                 <state key="normal" title="0"/>
                                 <connections>
                                     <segue destination="MN0-2m-Gun" kind="show" id="Lfo-YJ-Ppv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRw-5Y-tJt">
-                                <rect key="frame" x="24" y="258" width="34" height="21"/>
+                                <rect key="frame" x="24" y="206" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cml-WE-YDH">
-                                <rect key="frame" x="24" y="287" width="253" height="30"/>
+                                <rect key="frame" x="24" y="235" width="253" height="30"/>
                                 <state key="normal" title="2014/06/20"/>
                                 <connections>
                                     <segue destination="4x2-CR-oho" kind="show" id="LqC-gW-h3E"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCd-97-Zlt">
-                                <rect key="frame" x="20" y="341" width="68" height="21"/>
+                                <rect key="frame" x="20" y="273" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lj-hm-zS1">
-                                <rect key="frame" x="24" y="370" width="253" height="30"/>
+                                <rect key="frame" x="24" y="302" width="253" height="30"/>
                                 <state key="normal" title="食料"/>
                                 <connections>
                                     <segue destination="bHE-x8-lpm" kind="show" id="Ivc-BY-SWe"/>
@@ -213,12 +223,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Klp-vX-Nqt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="grU-X0-p3M">
+                            <connections>
+                                <action selector="cancelButtonTap:" destination="DRk-gU-6Sf" id="QzE-Se-JiT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="Xxs-fh-PzD">
                             <connections>
                                 <action selector="completeButtonTap:" destination="DRk-gU-6Sf" id="cU9-Th-fja"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amauntButton" destination="gm0-7q-qix" id="maj-ys-w38"/>
+                        <outlet property="categoryButton" destination="5lj-hm-zS1" id="Lyf-7v-PWr"/>
+                        <outlet property="limitButton" destination="Cml-WE-YDH" id="iQB-ON-v4L"/>
+                        <outlet property="nameField" destination="22G-qz-CNp" id="Oyf-lZ-pu0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXy-4N-Hgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="490" y="3112"/>
         </scene>
-        <!--View Controller-->
+        <!--Item Amount View Controller-->
         <scene sceneID="Vbt-g3-L5s">
             <objects>
-                <viewController id="MN0-2m-Gun" sceneMemberID="viewController">
+                <viewController id="MN0-2m-Gun" customClass="ItemAmountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q7N-JW-ypX"/>
                         <viewControllerLayoutGuide type="bottom" id="zos-AR-Vat"/>
@@ -254,6 +275,10 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-Mn-H3r">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MN0-2m-Gun" id="EDh-x6-tcx"/>
+                                    <outlet property="delegate" destination="MN0-2m-Gun" id="rU3-G8-P8N"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,10 +288,10 @@
             </objects>
             <point key="canvasLocation" x="1651.5" y="2576.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Category List View Controller-->
         <scene sceneID="3vl-zU-2Te">
             <objects>
-                <viewController id="bHE-x8-lpm" sceneMemberID="viewController">
+                <viewController id="bHE-x8-lpm" customClass="CategoryListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="alP-b9-1q3"/>
                         <viewControllerLayoutGuide type="bottom" id="ef0-We-eNi"/>
@@ -277,6 +302,10 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kWk-af-S0C">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bHE-x8-lpm" id="EP4-GL-x6W"/>
+                                    <outlet property="delegate" destination="bHE-x8-lpm" id="OkV-Ac-L5B"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

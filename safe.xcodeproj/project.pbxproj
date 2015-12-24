@@ -10,6 +10,9 @@
 		B53214D51C2C0F180060F2D4 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53214D41C2C0F180060F2D4 /* ItemListViewController.m */; };
 		B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B576272B1C2C142B00EDFAEC /* AddItemViewController.m */; };
 		B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */; };
+		B5C568CD1C2C15DE008ABB13 /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */; };
+		B5C568D01C2C1913008ABB13 /* ItemAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */; };
+		B5C568D31C2C1BD9008ABB13 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568D21C2C1BD9008ABB13 /* Item.m */; };
 		D13CC3E6CBC4FDA99805A660 /* Pods_safe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8835CECB2169C733A3DE1833 /* Pods_safe.framework */; };
 		F5441D0B1C1DB3630058E22B /* SelectShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */; };
 		F5441D0D1C1DB9930058E22B /* ShelterList.json in Resources */ = {isa = PBXBuildFile; fileRef = F5441D0C1C1DB9930058E22B /* ShelterList.json */; };
@@ -52,6 +55,12 @@
 		B576272B1C2C142B00EDFAEC /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B57DC9D71C1EDB8C00FBDE76 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
 		B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewController.m; sourceTree = "<group>"; };
+		B5C568CB1C2C15DE008ABB13 /* CategoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryListViewController.h; sourceTree = "<group>"; };
+		B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryListViewController.m; sourceTree = "<group>"; };
+		B5C568CE1C2C1913008ABB13 /* ItemAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAmountViewController.h; sourceTree = "<group>"; };
+		B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAmountViewController.m; sourceTree = "<group>"; };
+		B5C568D11C2C1BD9008ABB13 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		B5C568D21C2C1BD9008ABB13 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectShelterViewController.swift; sourceTree = "<group>"; };
 		F5441D0C1C1DB9930058E22B /* ShelterList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShelterList.json; sourceTree = "<group>"; };
 		F5BE83C51C1C6AB0000C102B /* safe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = safe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +135,10 @@
 				B53214D41C2C0F180060F2D4 /* ItemListViewController.m */,
 				B576272A1C2C142B00EDFAEC /* AddItemViewController.h */,
 				B576272B1C2C142B00EDFAEC /* AddItemViewController.m */,
+				B5C568CB1C2C15DE008ABB13 /* CategoryListViewController.h */,
+				B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */,
+				B5C568CE1C2C1913008ABB13 /* ItemAmountViewController.h */,
+				B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -177,6 +190,8 @@
 				F5BE83D61C1C6AB0000C102B /* LaunchScreen.storyboard */,
 				F5BE83D91C1C6AB0000C102B /* Info.plist */,
 				F5BE83C81C1C6AB0000C102B /* Supporting Files */,
+				B5C568D11C2C1BD9008ABB13 /* Item.h */,
+				B5C568D21C2C1BD9008ABB13 /* Item.m */,
 			);
 			path = safe;
 			sourceTree = "<group>";
@@ -404,9 +419,12 @@
 				B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */,
 				B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */,
 				B53214D51C2C0F180060F2D4 /* ItemListViewController.m in Sources */,
+				B5C568CD1C2C15DE008ABB13 /* CategoryListViewController.m in Sources */,
 				F5BE83D01C1C6AB0000C102B /* ViewController.m in Sources */,
 				F5BE83CD1C1C6AB0000C102B /* AppDelegate.m in Sources */,
 				F5BE84001C1C6F87000C102B /* SFMapViewController.swift in Sources */,
+				B5C568D31C2C1BD9008ABB13 /* Item.m in Sources */,
+				B5C568D01C2C1913008ABB13 /* ItemAmountViewController.m in Sources */,
 				F5BE83CA1C1C6AB0000C102B /* main.m in Sources */,
 				F5441D0B1C1DB3630058E22B /* SelectShelterViewController.swift in Sources */,
 			);
