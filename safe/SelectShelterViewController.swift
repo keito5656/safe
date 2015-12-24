@@ -53,7 +53,7 @@ class SelectShelterViewController: UIViewController, UIPickerViewDataSource, UIP
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
             let shelterList:NSArray = json["features"] as! NSArray
             for shelter in shelterList {
-                let coordinates = shelter["geometry"]!!["coordinates"]
+                let coordinates = shelter["geometry"]??["coordinates"]
                 let long:NSNumber = (coordinates!![0] as? NSNumber)!
                 let lat:NSNumber  = (coordinates!![1] as? NSNumber)!
                 let name:String = shelter["properties"]!!["name"] as! String
