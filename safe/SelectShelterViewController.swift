@@ -44,6 +44,12 @@ class SelectShelterViewController: UIViewController, UIPickerViewDataSource, UIP
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         return shelters.count
     }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let ud = NSUserDefaults.standardUserDefaults()
+        let shelter:shelterStruct = shelters[row]
+        ud.setObject(shelter.name, forKey: "shelter")
+        ud.synchronize()
+    }
     
     func loadShelterList() {
         let path : String = NSBundle.mainBundle().pathForResource("ShelterList", ofType: "json")!
@@ -70,16 +76,4 @@ class SelectShelterViewController: UIViewController, UIPickerViewDataSource, UIP
         } catch {
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

@@ -9,5 +9,9 @@
 #import "Item.h"
 
 @implementation Item
-
+- (NSString*)dateToString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    return [formatter stringFromDate:self.limit];
+}
 @end

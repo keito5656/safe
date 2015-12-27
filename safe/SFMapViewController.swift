@@ -12,16 +12,33 @@ let distance:CLLocationDistance = 2000
 
 class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var buttonBaseView: UIView!
+    @IBOutlet weak var shelterButton: UIButton!
     @IBOutlet weak var map: MKMapView!
     var myLocationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureLocation()
         configureMap()
-        
         loadShelterList()
+        
+        let blur = UIBlurEffect(style:UIBlurEffectStyle.Light)
+        let effectView = UIVisualEffectView.init(effect: blur)
+        effectView.frame = self.buttonBaseView.frame
+        self.view.insertSubview(effectView, aboveSubview: map)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.map.removeAnnotations(map.annotations)
+        loadShelterList()
+
+        let ud = NSUserDefaults.standardUserDefaults()
+        // キーがidの値をとります。
+        let value : AnyObject! = ud.objectForKey("shelter");
+        if let value = value {
+            self.shelterButton.setTitle(value as! String, forState: .Normal)
+        }
     }
     
     //LocationManagerDelegate
@@ -59,6 +76,15 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             pinView?.annotation = annotation
         }
         pinView?.canShowCallout = true
+        pinView?.pinTintColor = UIColor.safe_yellowColor()
+        let ud = NSUserDefaults()
+        let value : AnyObject! = ud.objectForKey("shelter");
+        if let value = value {
+            let shelter:String = value as! String
+            if (shelter == annotation.title!) {
+                pinView?.pinTintColor = UIColor.safe_orangeColor()
+            }
+        }
 
         return pinView
     }
@@ -138,9 +164,7 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         annotation.title = title
         annotation.subtitle = subtitle
-        annotation
         map.addAnnotation(annotation)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -152,16 +176,4 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let viewController:SelectShelterViewController = segue.destinationViewController as! SelectShelterViewController
         viewController.centerLocation = map.centerCoordinate
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

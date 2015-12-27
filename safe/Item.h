@@ -7,11 +7,12 @@
 //
 
 #import <Realm/Realm.h>
-
+#import <Foundation/Foundation.h>
 @interface Item : RLMObject
 @property NSString *name;
 @property NSInteger amount;
 @property NSDate *limit;
 @property NSString *category;
+- (NSString*)dateToString;
 @end
 RLM_ARRAY_TYPE(Item)

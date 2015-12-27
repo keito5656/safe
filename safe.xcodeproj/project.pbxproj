@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B53214D51C2C0F180060F2D4 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53214D41C2C0F180060F2D4 /* ItemListViewController.m */; };
+		B54D18611C2FCE90008DAC65 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B54D18601C2FCE90008DAC65 /* NotificationHelper.m */; };
+		B54D18651C2FE471008DAC65 /* UIColor+SafeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B54D18641C2FE471008DAC65 /* UIColor+SafeColor.m */; };
 		B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B576272B1C2C142B00EDFAEC /* AddItemViewController.m */; };
 		B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */; };
 		B59D163B1C2EBAA400C6475B /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D163A1C2EBAA400C6475B /* ItemTableViewCell.m */; };
@@ -53,6 +55,10 @@
 		8835CECB2169C733A3DE1833 /* Pods_safe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_safe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53214D31C2C0F180060F2D4 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		B53214D41C2C0F180060F2D4 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		B54D185F1C2FCE90008DAC65 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
+		B54D18601C2FCE90008DAC65 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
+		B54D18631C2FE471008DAC65 /* UIColor+SafeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SafeColor.h"; sourceTree = "<group>"; };
+		B54D18641C2FE471008DAC65 /* UIColor+SafeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SafeColor.m"; sourceTree = "<group>"; };
 		B576272A1C2C142B00EDFAEC /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
 		B576272B1C2C142B00EDFAEC /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B57DC9D71C1EDB8C00FBDE76 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
@@ -228,6 +234,10 @@
 				F5BE83C81C1C6AB0000C102B /* Supporting Files */,
 				B5C568D11C2C1BD9008ABB13 /* Item.h */,
 				B5C568D21C2C1BD9008ABB13 /* Item.m */,
+				B54D185F1C2FCE90008DAC65 /* NotificationHelper.h */,
+				B54D18601C2FCE90008DAC65 /* NotificationHelper.m */,
+				B54D18631C2FE471008DAC65 /* UIColor+SafeColor.h */,
+				B54D18641C2FE471008DAC65 /* UIColor+SafeColor.m */,
 			);
 			path = safe;
 			sourceTree = "<group>";
@@ -452,6 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54D18651C2FE471008DAC65 /* UIColor+SafeColor.m in Sources */,
+				B54D18611C2FCE90008DAC65 /* NotificationHelper.m in Sources */,
 				B59D163B1C2EBAA400C6475B /* ItemTableViewCell.m in Sources */,
 				B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */,
 				B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */,

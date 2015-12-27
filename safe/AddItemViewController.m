@@ -25,32 +25,29 @@
 - (void)viewDidLoad {
     self.entry = [[Item alloc] init];
     self.entry.name = @"";
-    self.entry.amount = 0;
+    self.entry.amount = 1;
     self.entry.limit = [NSDate date];
     self.entry.category = @"Category0";
-}
+    }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.nameField.text = self.entry.name;
     [self.amauntButton setTitle:[NSString stringWithFormat:@"%ld個", (long)self.entry.amount] forState:UIControlStateNormal];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy/MM/dd"];
-    NSString *dateStr = [formatter stringFromDate:self.entry.limit];
-    [self.limitButton setTitle:dateStr forState:UIControlStateNormal];
+    [self.limitButton setTitle:[self.entry dateToString] forState:UIControlStateNormal];
     [self.categoryButton setTitle:self.entry.category forState:UIControlStateNormal];
 }
 
 
 - (IBAction)completeButtonTap:(id)sender {
-    
     self.entry.name = self.nameField.text;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     [realm addObject:self.entry];
     [realm commitWriteTransaction];
+    
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -63,5 +60,4 @@
     UIViewController <Selectable> *vc = segue.destinationViewController;
     vc.item = self.entry;
 }
-
 @end
