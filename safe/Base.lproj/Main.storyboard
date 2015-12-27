@@ -6,11 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--地図-->
         <scene sceneID="Slv-c0-mC8">
             <objects>
                 <navigationController id="xLP-JG-88M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" id="xjf-15-gOB"/>
+                    <tabBarItem key="tabBarItem" title="地図" id="xjf-15-gOB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YXP-PO-Ec9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,6 +41,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpS-uE-6hp" customClass="UIVisualEffectView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="47"/>
                                 <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtR-2s-QCD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qLK-8U-DYg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lG-HT-0rn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -65,9 +73,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Af8-qS-iss"/>
                                     <constraint firstAttribute="trailing" secondItem="4lG-HT-0rn" secondAttribute="trailing" id="Gmi-pD-JNF"/>
+                                    <constraint firstAttribute="bottom" secondItem="jtR-2s-QCD" secondAttribute="bottom" id="X7n-kB-Q9P"/>
                                     <constraint firstAttribute="bottom" secondItem="4lG-HT-0rn" secondAttribute="bottom" id="b9j-p9-c6h"/>
                                     <constraint firstItem="4lG-HT-0rn" firstAttribute="leading" secondItem="VpS-uE-6hp" secondAttribute="leading" id="k50-wK-pmY"/>
+                                    <constraint firstItem="jtR-2s-QCD" firstAttribute="top" secondItem="VpS-uE-6hp" secondAttribute="top" id="n38-rI-qLd"/>
                                     <constraint firstItem="4lG-HT-0rn" firstAttribute="top" secondItem="VpS-uE-6hp" secondAttribute="top" id="oFC-YL-iTg"/>
+                                    <constraint firstItem="jtR-2s-QCD" firstAttribute="leading" secondItem="VpS-uE-6hp" secondAttribute="leading" id="oMK-Q8-TbU"/>
+                                    <constraint firstAttribute="trailing" secondItem="jtR-2s-QCD" secondAttribute="trailing" id="zyb-we-5Na"/>
                                 </constraints>
                             </view>
                         </subviews>

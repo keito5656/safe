@@ -224,6 +224,7 @@
 				B57DC9D61C1EDB5500FBDE76 /* todo */,
 				F5BE83FD1C1C6F41000C102B /* map */,
 				F5BE83CB1C1C6AB0000C102B /* AppDelegate.h */,
+				F5BE83FE1C1C6F86000C102B /* safe-Bridging-Header.h */,
 				F5BE83CC1C1C6AB0000C102B /* AppDelegate.m */,
 				F5BE83CE1C1C6AB0000C102B /* ViewController.h */,
 				F5BE83CF1C1C6AB0000C102B /* ViewController.m */,
@@ -272,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				F5BE83FF1C1C6F87000C102B /* SFMapViewController.swift */,
-				F5BE83FE1C1C6F86000C102B /* safe-Bridging-Header.h */,
 				F5441D0A1C1DB3630058E22B /* SelectShelterViewController.swift */,
 				F5441D0C1C1DB9930058E22B /* ShelterList.json */,
 			);
@@ -636,8 +636,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = safe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

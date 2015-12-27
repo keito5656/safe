@@ -38,15 +38,22 @@ class SelectShelterViewController: UIViewController, UIPickerViewDataSource, UIP
         return 1
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let shelter:shelterStruct = shelters[row]
+        if row == 0 {
+            return "避難所を選択してください"
+        }
+        let shelter:shelterStruct = shelters[row-1]
         return shelter.name
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return shelters.count
+        return shelters.count+1
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if row == 0 {
+            return
+        }
         let ud = NSUserDefaults.standardUserDefaults()
-        let shelter:shelterStruct = shelters[row]
+        let shelter:shelterStruct = shelters[row-1]
         ud.setObject(shelter.name, forKey: "shelter")
         ud.synchronize()
     }

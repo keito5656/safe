@@ -15,23 +15,23 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var buttonBaseView: UIView!
     @IBOutlet weak var shelterButton: UIButton!
     @IBOutlet weak var map: MKMapView!
+    var myAnno: MKPointAnnotation?
+    var myShelAnno: MKPointAnnotation?
+
+    
     var myLocationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLocation()
         configureMap()
-        loadShelterList()
-        
-        let blur = UIBlurEffect(style:UIBlurEffectStyle.Light)
-        let effectView = UIVisualEffectView.init(effect: blur)
-        effectView.frame = self.buttonBaseView.frame
-        self.view.insertSubview(effectView, aboveSubview: map)
     }
     
     override func viewWillAppear(animated: Bool) {
         self.map.removeAnnotations(map.annotations)
         loadShelterList()
+        map.removeOverlays(map.overlays)
+        configureLocation()
+
 
         let ud = NSUserDefaults.standardUserDefaults()
         // キーがidの値をとります。
@@ -50,14 +50,47 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let myLocation:CLLocationCoordinate2D = myLastLocation.coordinate
         
         // 縮尺.
-        let myLatDist : CLLocationDistance = distance
-        let myLonDist : CLLocationDistance = distance
+        let myLatDist : CLLocationDistance = 750.0
+        let myLonDist : CLLocationDistance = 750.0
         
         // Regionを作成.
         let myRegion: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(myLocation, myLatDist, myLonDist);
         
         // MapViewに反映.
         map.setRegion(myRegion, animated: true)
+
+        map.removeAnnotation(self.myAnno!)
+        
+        
+        //経路探索
+        let fromPlacemark = MKPlacemark(coordinate:myLocation, addressDictionary:nil)
+        let toPlacemark = MKPlacemark(coordinate:(myShelAnno?.coordinate)!, addressDictionary:nil)
+        let fromItem = MKMapItem(placemark:fromPlacemark);
+        let toItem = MKMapItem(placemark:toPlacemark);
+
+        let request = MKDirectionsRequest()
+        request.source = fromItem
+        request.destination = toItem
+        request.requestsAlternateRoutes = true; //複数経路
+        request.transportType = MKDirectionsTransportType.Walking
+        
+        let directions = MKDirections(request:request)
+        directions.calculateDirectionsWithCompletionHandler { (response, error) -> Void in
+            if let _ = error {
+                return;
+            }
+            let route: MKRoute = response!.routes[0] as MKRoute
+            self.map.addOverlay(route.polyline)
+        }
+        
+        
+    }
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let route: MKPolyline = overlay as! MKPolyline
+        let routeRenderer = MKPolylineRenderer(polyline:route)
+        routeRenderer.lineWidth = 3.0
+        routeRenderer.strokeColor = UIColor.redColor()
+        return routeRenderer
     }
     
     // MapViewDelegate
@@ -85,6 +118,11 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 pinView?.pinTintColor = UIColor.safe_orangeColor()
             }
         }
+        if let myAnno = self.myAnno {
+            if myAnno.title == (pinView?.annotation?.title)! {
+                pinView?.pinTintColor = UIColor.redColor()
+            }
+        }
 
         return pinView
     }
@@ -105,7 +143,17 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 let lat:NSNumber  = (coordinates!![1] as? NSNumber)!
                 let name:String = shelter["properties"]!!["name"] as! String
                 let location:CLLocation = CLLocation.init(latitude: lat.doubleValue, longitude: long.doubleValue)
-                addShelterPin(name, subtitle: "避難所", location: location)
+                let ud = NSUserDefaults()
+                let value : AnyObject! = ud.objectForKey("shelter");
+
+                var subtitle: String = "避難所"
+                if let value = value {
+                    if name == value as! String {
+                        subtitle = "あなたの設定した避難所"
+                        addMyShelterPin(name, subtitle: subtitle, location: location)
+                    }
+                }
+                addShelterPin(name, subtitle: subtitle, location: location)
             }
             
         } catch {
@@ -120,7 +168,7 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         myLocationManager.delegate = self
         
         // 距離のフィルタ.
-        myLocationManager.distanceFilter = 100.0
+        myLocationManager.distanceFilter = 50.0
         
         // 精度.
         myLocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -156,7 +204,8 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         map.delegate = self
         // MapViewに反映.
         map.setRegion(myRegion, animated: true)
-        
+        let location:CLLocation = CLLocation.init(latitude: myLat, longitude: myLon)
+        addMyLocation("静岡市役所", subtitle: "", location: location)
     }
     
     func addShelterPin(title:String, subtitle:String, location:CLLocation) {
@@ -166,6 +215,28 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         annotation.subtitle = subtitle
         map.addAnnotation(annotation)
     }
+    func addMyShelterPin(title:String, subtitle:String, location:CLLocation) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        annotation.title = title
+        annotation.subtitle = subtitle
+        map.addAnnotation(annotation)
+        self.myShelAnno = annotation;
+    }
+    
+    func addMyLocation(title:String, subtitle:String, location:CLLocation) {
+        if let anno = self.myAnno {
+            map.removeAnnotation(anno)
+        }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        annotation.title = title
+        annotation.subtitle = subtitle
+        self.myAnno = annotation
+        map.addAnnotation(annotation)
+
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
