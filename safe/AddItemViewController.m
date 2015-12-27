@@ -8,6 +8,7 @@
 
 #import "AddItemViewController.h"
 #import "Item.h"
+#import "Selectable.h"
 
 @interface AddItemViewController()<UITextFieldDelegate>
 @property (nonatomic,strong)Item *entry;
@@ -33,7 +34,11 @@
     [super viewWillAppear:animated];
     self.nameField.text = self.entry.name;
     [self.amauntButton setTitle:[NSString stringWithFormat:@"%ld個", (long)self.entry.amount] forState:UIControlStateNormal];
-    [self.limitButton setTitle:[NSString stringWithFormat:@"%ld個", self.entry.limit] forState:UIControlStateNormal];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    NSString *dateStr = [formatter stringFromDate:self.entry.limit];
+    [self.limitButton setTitle:dateStr forState:UIControlStateNormal];
     [self.categoryButton setTitle:self.entry.category forState:UIControlStateNormal];
 }
 
@@ -51,6 +56,12 @@
 
 - (IBAction)cancelButtonTap:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.entry.name = self.nameField.text;
+    UIViewController <Selectable> *vc = segue.destinationViewController;
+    vc.item = self.entry;
 }
 
 @end

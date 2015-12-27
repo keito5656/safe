@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CategoryListViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+#import "Selectable.h"
+@interface CategoryListViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate,Selectable>
+@property(nonatomic,strong)Item *item;
 
 @end

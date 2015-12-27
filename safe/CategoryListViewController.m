@@ -7,6 +7,7 @@
 //
 
 #import "CategoryListViewController.h"
+#import "Item.h"
 
 @implementation CategoryListViewController
 
@@ -15,11 +16,15 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 4;
+    return 99;
 }
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"Category%d", row];
+    return [NSString stringWithFormat:@"Category%ld", row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.item.category = [NSString stringWithFormat:@"Category%ld", row];
 }
 
 @end

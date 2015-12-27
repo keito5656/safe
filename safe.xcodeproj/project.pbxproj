@@ -10,6 +10,8 @@
 		B53214D51C2C0F180060F2D4 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53214D41C2C0F180060F2D4 /* ItemListViewController.m */; };
 		B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B576272B1C2C142B00EDFAEC /* AddItemViewController.m */; };
 		B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */; };
+		B59D163B1C2EBAA400C6475B /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D163A1C2EBAA400C6475B /* ItemTableViewCell.m */; };
+		B59D163E1C2EBEC000C6475B /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D163D1C2EBEC000C6475B /* DateSelectViewController.m */; };
 		B5C568CD1C2C15DE008ABB13 /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */; };
 		B5C568D01C2C1913008ABB13 /* ItemAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */; };
 		B5C568D31C2C1BD9008ABB13 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C568D21C2C1BD9008ABB13 /* Item.m */; };
@@ -55,6 +57,11 @@
 		B576272B1C2C142B00EDFAEC /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B57DC9D71C1EDB8C00FBDE76 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
 		B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewController.m; sourceTree = "<group>"; };
+		B59D16391C2EBAA400C6475B /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		B59D163A1C2EBAA400C6475B /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		B59D163C1C2EBEC000C6475B /* DateSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
+		B59D163D1C2EBEC000C6475B /* DateSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
+		B59D16411C2EBF1C00C6475B /* Selectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectable.h; sourceTree = "<group>"; };
 		B5C568CB1C2C15DE008ABB13 /* CategoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryListViewController.h; sourceTree = "<group>"; };
 		B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryListViewController.m; sourceTree = "<group>"; };
 		B5C568CE1C2C1913008ABB13 /* ItemAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAmountViewController.h; sourceTree = "<group>"; };
@@ -131,14 +138,8 @@
 		B53214D61C2C0F1D0060F2D4 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				B53214D31C2C0F180060F2D4 /* ItemListViewController.h */,
-				B53214D41C2C0F180060F2D4 /* ItemListViewController.m */,
-				B576272A1C2C142B00EDFAEC /* AddItemViewController.h */,
-				B576272B1C2C142B00EDFAEC /* AddItemViewController.m */,
-				B5C568CB1C2C15DE008ABB13 /* CategoryListViewController.h */,
-				B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */,
-				B5C568CE1C2C1913008ABB13 /* ItemAmountViewController.h */,
-				B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */,
+				B59D163F1C2EBED100C6475B /* add */,
+				B59D16381C2EBA7000C6475B /* itemlist */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -150,6 +151,41 @@
 				B57DC9D81C1EDB8C00FBDE76 /* TodoViewController.m */,
 			);
 			name = todo;
+			sourceTree = "<group>";
+		};
+		B59D16381C2EBA7000C6475B /* itemlist */ = {
+			isa = PBXGroup;
+			children = (
+				B53214D31C2C0F180060F2D4 /* ItemListViewController.h */,
+				B53214D41C2C0F180060F2D4 /* ItemListViewController.m */,
+				B59D16391C2EBAA400C6475B /* ItemTableViewCell.h */,
+				B59D163A1C2EBAA400C6475B /* ItemTableViewCell.m */,
+			);
+			name = itemlist;
+			sourceTree = "<group>";
+		};
+		B59D163F1C2EBED100C6475B /* add */ = {
+			isa = PBXGroup;
+			children = (
+				B59D16401C2EBEDC00C6475B /* select */,
+				B576272A1C2C142B00EDFAEC /* AddItemViewController.h */,
+				B576272B1C2C142B00EDFAEC /* AddItemViewController.m */,
+			);
+			name = add;
+			sourceTree = "<group>";
+		};
+		B59D16401C2EBEDC00C6475B /* select */ = {
+			isa = PBXGroup;
+			children = (
+				B5C568CB1C2C15DE008ABB13 /* CategoryListViewController.h */,
+				B5C568CC1C2C15DE008ABB13 /* CategoryListViewController.m */,
+				B5C568CE1C2C1913008ABB13 /* ItemAmountViewController.h */,
+				B5C568CF1C2C1913008ABB13 /* ItemAmountViewController.m */,
+				B59D163C1C2EBEC000C6475B /* DateSelectViewController.h */,
+				B59D163D1C2EBEC000C6475B /* DateSelectViewController.m */,
+				B59D16411C2EBF1C00C6475B /* Selectable.h */,
+			);
+			name = select;
 			sourceTree = "<group>";
 		};
 		F5BE83BC1C1C6AB0000C102B = {
@@ -416,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59D163B1C2EBAA400C6475B /* ItemTableViewCell.m in Sources */,
 				B57DC9D91C1EDB8C00FBDE76 /* TodoViewController.m in Sources */,
 				B576272C1C2C142B00EDFAEC /* AddItemViewController.m in Sources */,
 				B53214D51C2C0F180060F2D4 /* ItemListViewController.m in Sources */,
@@ -424,6 +461,7 @@
 				F5BE83CD1C1C6AB0000C102B /* AppDelegate.m in Sources */,
 				F5BE84001C1C6F87000C102B /* SFMapViewController.swift in Sources */,
 				B5C568D31C2C1BD9008ABB13 /* Item.m in Sources */,
+				B59D163E1C2EBEC000C6475B /* DateSelectViewController.m in Sources */,
 				B5C568D01C2C1913008ABB13 /* ItemAmountViewController.m in Sources */,
 				F5BE83CA1C1C6AB0000C102B /* main.m in Sources */,
 				F5441D0B1C1DB3630058E22B /* SelectShelterViewController.swift in Sources */,
@@ -568,10 +606,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = safe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info.kamome-net.safe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "safe/safe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -584,10 +625,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = safe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info.kamome-net.safe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "safe/safe-Bridging-Header.h";
 			};
 			name = Release;

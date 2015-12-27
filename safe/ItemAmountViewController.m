@@ -7,6 +7,7 @@
 //
 
 #import "ItemAmountViewController.h"
+#import "Item.h"
 
 @implementation ItemAmountViewController
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -18,6 +19,10 @@
 }
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%d個", row];
+    return [NSString stringWithFormat:@"%ld個", (long)row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.item.amount = row;
 }
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Selectable.h"
 
-@interface ItemAmountViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+@interface ItemAmountViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate, Selectable>
+@property(nonatomic,strong)Item *item;
 
 @end

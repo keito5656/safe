@@ -7,7 +7,55 @@
 //
 
 #import "ItemListViewController.h"
-
+#import <Realm/Realm.h>
+#import "Item.h"
+#import "ItemTableViewCell.h"
+@interface ItemListViewController() <UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic,strong)RLMResults<Item *> *items;
+@end
 @implementation ItemListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.items = [Item allObjects];
+    [self.tableView reloadData];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.items.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
+    Item *entry = self.items[indexPath.row];
+    cell.ItemNameLabel.text = entry.name;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"期限:yyyy/MM/dd"];
+    NSString *dateStr = [formatter stringFromDate:entry.limit];
+    cell.limitLabel.text = dateStr;
+    
+    cell.categoryLabel.text = entry.category;
+    
+    
+    cell.amountLabel.text = [NSString stringWithFormat:@"%ld個", entry.amount];
+    
+    
+    return cell;
+}
+
 
 @end
