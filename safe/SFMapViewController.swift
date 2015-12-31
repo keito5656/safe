@@ -32,12 +32,11 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         map.removeOverlays(map.overlays)
         configureLocation()
 
-
         let ud = NSUserDefaults.standardUserDefaults()
         // キーがidの値をとります。
         let value : AnyObject! = ud.objectForKey("shelter");
         if let value = value {
-            self.shelterButton.setTitle(value as! String, forState: .Normal)
+            self.shelterButton.setTitle(value as? String, forState: .Normal)
         }
     }
     
@@ -62,27 +61,29 @@ class SFMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         map.removeAnnotation(self.myAnno!)
         
         
-        //経路探索
-        let fromPlacemark = MKPlacemark(coordinate:myLocation, addressDictionary:nil)
-        let toPlacemark = MKPlacemark(coordinate:(myShelAnno?.coordinate)!, addressDictionary:nil)
-        let fromItem = MKMapItem(placemark:fromPlacemark);
-        let toItem = MKMapItem(placemark:toPlacemark);
-
-        let request = MKDirectionsRequest()
-        request.source = fromItem
-        request.destination = toItem
-        request.requestsAlternateRoutes = true; //複数経路
-        request.transportType = MKDirectionsTransportType.Walking
-        
-        let directions = MKDirections(request:request)
-        directions.calculateDirectionsWithCompletionHandler { (response, error) -> Void in
-            if let _ = error {
-                return;
+        if let myShelAnno = myShelAnno {
+            
+            //経路探索
+            let fromPlacemark = MKPlacemark(coordinate:myLocation, addressDictionary:nil)
+            let toPlacemark = MKPlacemark(coordinate:(myShelAnno.coordinate), addressDictionary:nil)
+            let fromItem = MKMapItem(placemark:fromPlacemark);
+            let toItem = MKMapItem(placemark:toPlacemark);
+            
+            let request = MKDirectionsRequest()
+            request.source = fromItem
+            request.destination = toItem
+            request.requestsAlternateRoutes = true; //複数経路
+            request.transportType = MKDirectionsTransportType.Walking
+            
+            let directions = MKDirections(request:request)
+            directions.calculateDirectionsWithCompletionHandler { (response, error) -> Void in
+                if let _ = error {
+                    return;
+                }
+                let route: MKRoute = response!.routes[0] as MKRoute
+                self.map.addOverlay(route.polyline)
             }
-            let route: MKRoute = response!.routes[0] as MKRoute
-            self.map.addOverlay(route.polyline)
         }
-        
         
     }
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {

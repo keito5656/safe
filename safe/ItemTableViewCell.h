@@ -11,6 +11,5 @@
 @interface ItemTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *ItemNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *limitLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @end

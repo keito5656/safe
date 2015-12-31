@@ -18,13 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.tableView.editing = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     self.items = [Item allObjects];
     [self.tableView reloadData];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 
@@ -49,10 +52,8 @@
     NSString *dateStr = [formatter stringFromDate:entry.limit];
     cell.limitLabel.text = dateStr;
     
-    cell.categoryLabel.text = entry.category;
     
-    
-    cell.amountLabel.text = [NSString stringWithFormat:@"%ld個", entry.amount];
+    cell.amountLabel.text = [NSString stringWithFormat:@"在庫:%ld個", entry.amount];
     
     
     return cell;
