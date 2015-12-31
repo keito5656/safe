@@ -18,12 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:1.0f];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.items = [Item allObjects];
+    self.items = [[Item allObjects] sortedResultsUsingProperty:@"limit" ascending:YES];
     [self.tableView reloadData];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -51,9 +53,9 @@
     [formatter setDateFormat:@"期限:yyyy/MM/dd"];
     NSString *dateStr = [formatter stringFromDate:entry.limit];
     cell.limitLabel.text = dateStr;
-    
-    
     cell.amountLabel.text = [NSString stringWithFormat:@"在庫:%ld個", entry.amount];
+    
+    cell.entry = entry;
     
     
     return cell;
@@ -68,9 +70,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         [realm deleteObject:entry];
         [realm commitWriteTransaction];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // ここは空のままでOKです。
     }
 }
 

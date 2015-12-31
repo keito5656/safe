@@ -20,9 +20,9 @@
     for (Item *entry in items) {
         UILocalNotification *notify = [[UILocalNotification alloc] init];
         notify.repeatInterval = kCFCalendarUnitDay;
-        notify.fireDate = [NSDate dateWithTimeIntervalSinceNow:2];
-        notify.alertTitle = [NSString stringWithFormat:@"もうすぐ%@の期限は%@です。確認しましょう", entry.name, [entry dateToString]];
-//        notify.alertBody = [NSString stringWithFormat:@"%@が期限です。",];
+        notify.fireDate = entry.limit;
+        notify.alertBody = [NSString stringWithFormat:@"%@の期限は%@です。確認しましょう", entry.name, [entry dateToString]];
+        
         [[UIApplication sharedApplication] scheduleLocalNotification:notify];
     }
 }

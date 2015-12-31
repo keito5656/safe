@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Item;
 @interface ItemTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *ItemNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *limitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UIView  *contentBaseView;
+
+@property (nonatomic,weak)Item *entry;
 @end

@@ -43,6 +43,15 @@
 - (IBAction)completeButtonTap:(id)sender {
     self.entry.name = self.nameField.text;
     
+    
+    if ([self.entry.name  isEqual: @""]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"お願いです" message:@"品物名は必ず入れてください" preferredStyle:UIAlertControllerStyleAlert];
+        // addActionした順に左から右にボタンが配置されます
+        [alertController addAction:[UIAlertAction actionWithTitle:@"はい" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     [realm addObject:self.entry];

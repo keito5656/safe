@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MapKit/MapKit.h>
 #import "NotificationHelper.h"
+#import "UIColor+SafeColor.h"
 @interface AppDelegate ()
 
 @end
@@ -19,11 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[CLLocationManager new] requestAlwaysAuthorization];
-//    application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
-    
     UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
     [application registerUserNotificationSettings:settings];
+    [[UINavigationBar appearance] setTintColor:[UIColor safe_orangeColor]];
+
     return YES;
 }
 
@@ -41,7 +42,6 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
