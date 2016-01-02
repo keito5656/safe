@@ -54,7 +54,19 @@
     self.contentBaseView.layer.shadowRadius = 2.0f;
     
     self.contentBaseView.layer.cornerRadius = 5;
-//    self.contentBaseView.clipsToBounds = true;
+    
+    
+    if ([self.entry.category isEqualToString:@"食料、飲料品"]) {
+        self.itemImageView.image = [UIImage imageNamed:@"GoodsIcon01"];
+    } else if ([self.entry.category isEqualToString:@"高齢者用品"]) {
+        self.itemImageView.image = [UIImage imageNamed:@"GoodsIcon02"];
+    } else if ([self.entry.category isEqualToString:@"女性用品"]) {
+        self.itemImageView.image = [UIImage imageNamed:@"GoodsIcon03"];
+    } else if ([self.entry.category isEqualToString:@"生活用品"]) {
+        self.itemImageView.image = [UIImage imageNamed:@"GoodsIcon04"];
+    } else if ([self.entry.category isEqualToString:@"幼児用品"]) {
+        self.itemImageView.image = [UIImage imageNamed:@"GoodsIcon05"];
+    }
     
 }
 

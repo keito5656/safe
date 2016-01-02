@@ -195,7 +195,7 @@
                                                             <color key="textColor" red="1" green="0.54117647058823526" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bousaiGirl" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-em-CpD">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-em-CpD">
                                                             <rect key="frame" x="7" y="15" width="70" height="70"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd9-bF-IUy">
@@ -214,6 +214,7 @@
                                             <outlet property="ItemNameLabel" destination="qVb-Om-3MX" id="tuS-AI-VTh"/>
                                             <outlet property="amountLabel" destination="Yd9-bF-IUy" id="ooj-go-SKq"/>
                                             <outlet property="contentBaseView" destination="bvW-dh-iCu" id="dAn-8T-7Mn"/>
+                                            <outlet property="itemImageView" destination="UOu-em-CpD" id="lXw-jq-vhd"/>
                                             <outlet property="limitLabel" destination="A8x-Rb-Ndw" id="6eM-Tj-Sc0"/>
                                         </connections>
                                     </tableViewCell>

@@ -27,7 +27,7 @@
     self.entry.name = @"";
     self.entry.amount = 1;
     self.entry.limit = [NSDate date];
-    self.entry.category = @"Category0";
+    self.entry.category = @"食料、飲料品";
     }
 
 - (void)viewWillAppear:(BOOL)animated {

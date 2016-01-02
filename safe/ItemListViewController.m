@@ -47,15 +47,15 @@
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
     Item *entry = self.items[indexPath.row];
-    cell.ItemNameLabel.text = entry.name;
+    cell.entry = entry;
     
+    cell.ItemNameLabel.text = entry.name;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"期限:yyyy/MM/dd"];
     NSString *dateStr = [formatter stringFromDate:entry.limit];
     cell.limitLabel.text = dateStr;
-    cell.amountLabel.text = [NSString stringWithFormat:@"在庫:%ld個", entry.amount];
-    
-    cell.entry = entry;
+    cell.amountLabel.text = [NSString stringWithFormat:@"在庫:%ld個", (long)entry.amount];
+    [cell layoutSubviews];
     
     
     return cell;
