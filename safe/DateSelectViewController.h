@@ -11,5 +11,6 @@
 
 @interface DateSelectViewController : UIViewController<Selectable>
 @property(nonatomic,strong)Item *item;
+@property (weak, nonatomic) IBOutlet UIDatePicker *picker;
 
 @end

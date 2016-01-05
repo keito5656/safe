@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.picker.date = self.item.limit;
     // Do any additional setup after loading the view.
 }
 

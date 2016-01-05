@@ -11,11 +11,11 @@
 #import "Selectable.h"
 
 @interface AddItemViewController()<UITextFieldDelegate>
-@property (nonatomic,strong)Item *entry;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIButton *amauntButton;
 @property (weak, nonatomic) IBOutlet UIButton *limitButton;
 @property (weak, nonatomic) IBOutlet UIButton *categoryButton;
+@property (nonatomic, strong)Item *entry;
 @end
 
 
@@ -24,11 +24,20 @@
 
 - (void)viewDidLoad {
     self.entry = [[Item alloc] init];
-    self.entry.name = @"";
-    self.entry.amount = 1;
-    self.entry.limit = [NSDate date];
-    self.entry.category = @"食料、飲料品";
+
+    [super viewDidLoad];
+    if (self.origineEntry) {
+        self.entry.name = self.origineEntry.name;
+        self.entry.amount = self.origineEntry.amount;
+        self.entry.limit = self.origineEntry.limit;
+        self.entry.category = self.origineEntry.category;
+    } else {
+        self.entry.name = @"";
+        self.entry.amount = 1;
+        self.entry.limit = [NSDate date];
+        self.entry.category = @"食料、飲料品";
     }
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,6 +63,7 @@
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
+    [realm deleteObject:self.origineEntry];
     [realm addObject:self.entry];
     [realm commitWriteTransaction];
     

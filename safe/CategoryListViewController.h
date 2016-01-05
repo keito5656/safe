@@ -10,5 +10,6 @@
 #import "Selectable.h"
 @interface CategoryListViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate,Selectable>
 @property(nonatomic,strong)Item *item;
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

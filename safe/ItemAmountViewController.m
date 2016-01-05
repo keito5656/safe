@@ -10,6 +10,13 @@
 #import "Item.h"
 
 @implementation ItemAmountViewController
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.picker selectRow:self.item.amount-1 inComponent:0 animated:YES];
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
@@ -23,6 +30,6 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.item.amount = row;
+    self.item.amount = row+1;
 }
 @end

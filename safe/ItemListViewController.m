@@ -10,9 +10,12 @@
 #import <Realm/Realm.h>
 #import "Item.h"
 #import "ItemTableViewCell.h"
+#import "AddItemViewController.h"
+
 @interface ItemListViewController() <UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)RLMResults<Item *> *items;
+@property(nonatomic,strong)Item *selectedEntry;
 @end
 @implementation ItemListViewController
 
@@ -73,6 +76,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AddItemViewController* vc = [segue.destinationViewController topViewController];
+    vc.origineEntry = self.selectedEntry;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedEntry = self.items[indexPath.row];
+    return indexPath;
+}
+
+//- (void)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//}
 
 
 @end

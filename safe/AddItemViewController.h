@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Item;
 @interface AddItemViewController : UIViewController
-
+@property (nonatomic, strong)Item *origineEntry;
 @end

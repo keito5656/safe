@@ -22,6 +22,16 @@
       ];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[self categoryList] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self.item.category isEqualToString:obj]) {
+            [self.picker selectRow:idx inComponent:0 animated:YES];
+        }        
+    }];
+    
+}
+
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
