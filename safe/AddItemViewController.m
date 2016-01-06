@@ -24,7 +24,8 @@
 
 - (void)viewDidLoad {
     self.entry = [[Item alloc] init];
-
+    self.nameField.returnKeyType = UIReturnKeyDone;
+    self.nameField.delegate = self;
     [super viewDidLoad];
     if (self.origineEntry) {
         self.entry.name = self.origineEntry.name;
@@ -48,6 +49,10 @@
     [self.categoryButton setTitle:self.entry.category forState:UIControlStateNormal];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.nameField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)completeButtonTap:(id)sender {
     self.entry.name = self.nameField.text;
@@ -55,7 +60,7 @@
     
     if ([self.entry.name  isEqual: @""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"お願いです" message:@"品物名は必ず入れてください" preferredStyle:UIAlertControllerStyleAlert];
-        // addActionした順に左から右にボタンが配置されます
+        
         [alertController addAction:[UIAlertAction actionWithTitle:@"はい" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
         return;
@@ -63,7 +68,9 @@
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
-    [realm deleteObject:self.origineEntry];
+    if (self.origineEntry) {
+        [realm deleteObject:self.origineEntry];
+    }
     [realm addObject:self.entry];
     [realm commitWriteTransaction];
     
