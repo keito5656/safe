@@ -1,0 +1,57 @@
+
+/* Class = "UITabBarItem"; title = "やること"; ObjectID = "0Cj-Gr-wM1"; */
+"0Cj-Gr-wM1.title" = "やること";
+
+/* Class = "UILabel"; text = "個数"; ObjectID = "1xF-ji-025"; */
+"1xF-ji-025.text" = "個数";
+
+/* Class = "UIButton"; normalTitle = "避難所を選択してください"; ObjectID = "4lG-HT-0rn"; */
+"4lG-HT-0rn.normalTitle" = "避難所を選択してください";
+
+/* Class = "UIButton"; normalTitle = "食料"; ObjectID = "5lj-hm-zS1"; */
+"5lj-hm-zS1.normalTitle" = "食料";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "A8x-Rb-Ndw"; */
+"A8x-Rb-Ndw.text" = "Label";
+
+/* Class = "UIViewController"; title = "避難所"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "避難所";
+
+/* Class = "UIButton"; normalTitle = "2014/06/20"; ObjectID = "Cml-WE-YDH"; */
+"Cml-WE-YDH.normalTitle" = "2014/06/20";
+
+/* Class = "UIButton"; normalTitle = "削除"; ObjectID = "Ebp-DH-L6V"; */
+"Ebp-DH-L6V.normalTitle" = "削除";
+
+/* Class = "UILabel"; text = "防災ガール！それはイケているということ これからの時代を生きるために"; ObjectID = "Sv2-Gr-1Zh"; */
+"Sv2-Gr-1Zh.text" = "防災ガール！それはイケているということ これからの時代を生きるために";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Xxs-fh-PzD"; */
+"Xxs-fh-PzD.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Yd9-bF-IUy"; */
+"Yd9-bF-IUy.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Todo"; ObjectID = "epq-fX-dtw"; */
+"epq-fX-dtw.title" = "Todo";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "gm0-7q-qix"; */
+"gm0-7q-qix.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qVb-Om-3MX"; */
+"qVb-Om-3MX.text" = "Label";
+
+/* Class = "UILabel"; text = "期限"; ObjectID = "rRw-5Y-tJt"; */
+"rRw-5Y-tJt.text" = "期限";
+
+/* Class = "UILabel"; text = "品物"; ObjectID = "uwF-LD-qxv"; */
+"uwF-LD-qxv.text" = "品物";
+
+/* Class = "UILabel"; text = "カテゴリ"; ObjectID = "wCd-97-Zlt"; */
+"wCd-97-Zlt.text" = "カテゴリ";
+
+/* Class = "UITabBarItem"; title = "個人"; ObjectID = "whq-Jq-jdq"; */
+"whq-Jq-jdq.title" = "個人";
+
+/* Class = "UITabBarItem"; title = "プロフィール"; ObjectID = "yGB-5u-Q63"; */
+"yGB-5u-Q63.title" = "プロフィール";

@@ -15,24 +15,36 @@
 @property (weak, nonatomic) IBOutlet UIButton *amauntButton;
 @property (weak, nonatomic) IBOutlet UIButton *limitButton;
 @property (weak, nonatomic) IBOutlet UIButton *categoryButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (nonatomic, strong)Item *entry;
 @end
 
 
 @implementation AddItemViewController
 
+- (IBAction)deleteButtonTap:(id)sender {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    if (self.origineEntry) {
+        [realm deleteObject:self.origineEntry];
+    }
+    [realm commitWriteTransaction];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+
     self.entry = [[Item alloc] init];
     self.nameField.returnKeyType = UIReturnKeyDone;
     self.nameField.delegate = self;
-    [super viewDidLoad];
     if (self.origineEntry) {
         self.entry.name = self.origineEntry.name;
         self.entry.amount = self.origineEntry.amount;
         self.entry.limit = self.origineEntry.limit;
         self.entry.category = self.origineEntry.category;
     } else {
+        [self.deleteButton removeFromSuperview];
         self.entry.name = @"";
         self.entry.amount = 1;
         self.entry.limit = [NSDate date];
@@ -86,4 +98,5 @@
     UIViewController <Selectable> *vc = segue.destinationViewController;
     vc.item = self.entry;
 }
+
 @end

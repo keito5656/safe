@@ -78,8 +78,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AddItemViewController* vc = [segue.destinationViewController topViewController];
-    vc.origineEntry = self.selectedEntry;
+    
+    if([segue.identifier isEqualToString:@"add"]) {
+        
+    } else {
+        AddItemViewController* vc = [segue.destinationViewController topViewController];
+        vc.origineEntry = self.selectedEntry;
+    }
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,9 +92,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath;
 }
 
-//- (void)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
 
 
 @end
