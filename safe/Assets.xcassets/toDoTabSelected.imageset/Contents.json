@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SAFE_splash.png",
+      "filename" : "tab05.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SAFE_splash@2x.png",
+      "filename" : "tab05-1.png",
       "scale" : "2x"
     },
     {
