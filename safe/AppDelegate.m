@@ -23,7 +23,12 @@
     UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
     [application registerUserNotificationSettings:settings];
-    [[UINavigationBar appearance] setTintColor:[UIColor safe_orangeColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [UINavigationBar appearance].barTintColor = [UIColor safe_yellowColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+
 
     return YES;
 }

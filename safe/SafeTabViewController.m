@@ -18,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
+
+    
     self.tabBar.tintColor  = [UIColor redColor];
     UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
     tbi.image = [[UIImage imageNamed:@"listTab"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -57,14 +60,19 @@
 }
 
 - (void)introDidFinish:(EAIntroView *)introView {
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    [ud setObject:@(YES) forKey:@"fitstUser"];
-//    [ud synchronize];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:@(YES) forKey:@"fitstUser"];
+    [ud synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*

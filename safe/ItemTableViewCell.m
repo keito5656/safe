@@ -30,14 +30,17 @@
             case NSOrderedSame:
                 // 同一時刻
                 self.limitLabel.textColor = [UIColor lightGrayColor];
+                self.bikkuriImageView.hidden = YES;
                 break;
             case NSOrderedAscending:
                 // nowよりotherDateのほうが未来
                 self.limitLabel.textColor = [UIColor lightGrayColor];
+                self.bikkuriImageView.hidden = YES;
                 break;
             case NSOrderedDescending:
                 // nowよりotherDateのほうが過去
                 self.limitLabel.textColor = [UIColor redColor];
+                self.bikkuriImageView.hidden = NO;
                 break;
         }
     }

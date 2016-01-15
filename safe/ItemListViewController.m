@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:1.0f];
+    self.navigationItem.title = @"備蓄品List";
 
 }
 
@@ -54,10 +55,10 @@
     
     cell.ItemNameLabel.text = entry.name;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"期限:yyyy/MM/dd"];
+    [formatter setDateFormat:@"期限: yyyy/MM/dd"];
     NSString *dateStr = [formatter stringFromDate:entry.limit];
     cell.limitLabel.text = dateStr;
-    cell.amountLabel.text = [NSString stringWithFormat:@"在庫:%ld個", (long)entry.amount];
+    cell.amountLabel.text = [NSString stringWithFormat:@"在庫: %ld個", (long)entry.amount];
     [cell layoutSubviews];
     
     
@@ -91,7 +92,5 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedEntry = self.items[indexPath.row];
     return indexPath;
 }
-
-
 
 @end

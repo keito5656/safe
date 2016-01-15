@@ -43,12 +43,14 @@
         self.entry.amount = self.origineEntry.amount;
         self.entry.limit = self.origineEntry.limit;
         self.entry.category = self.origineEntry.category;
+        self.navigationItem.title = @"備蓄品を変更";
     } else {
         [self.deleteButton removeFromSuperview];
         self.entry.name = @"";
         self.entry.amount = 1;
         self.entry.limit = [NSDate date];
         self.entry.category = @"食料、飲料品";
+        self.navigationItem.title = @"備蓄品を追加";
     }
 }
 

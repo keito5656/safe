@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIView  *contentBaseView;
 @property (weak, nonatomic) IBOutlet UIImageView  *itemImageView;
+@property (weak, nonatomic) IBOutlet UIImageView  *bikkuriImageView;
+
 
 
 @property (nonatomic,weak)Item *entry;

@@ -22,7 +22,7 @@
         notify.repeatInterval = kCFCalendarUnitDay;
         notify.fireDate = entry.limit;
         notify.alertBody = [NSString stringWithFormat:@"%@の期限は%@です。確認しましょう", entry.name, [entry dateToString]];
-        
+//        [[UIApplication sharedApplication] presentLocalNotificationNow:notify];
         [[UIApplication sharedApplication] scheduleLocalNotification:notify];
     }
 }

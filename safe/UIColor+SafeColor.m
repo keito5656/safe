@@ -10,10 +10,10 @@
 
 @implementation UIColor (SafeColor)
 + (UIColor *)safe_orangeColor {
-    return [UIColor colorWithRed:255.0f/255.0f green:138.0f/255.0f blue:0.0f alpha:1.0f];
+    return [UIColor colorWithRed:253.0f/255.0f green:179.0f/255.0f blue:43.0f alpha:1.0f];
 }
-+ (UIColor *)safe_yellowColor {
-    return [UIColor colorWithRed:255.0f/255.0f green:215.0f/255.0f blue:71.0f/255.0f alpha:1.0f];
++ (UIColor *)safe_yellowColor {    
+    return [UIColor colorWithRed:253.0f/255.0f green:193.0f/255.0f blue:45.0f/255.0f alpha:1.0f];
     
 }
 
